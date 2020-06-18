@@ -9,7 +9,8 @@ public class TaskDTO {
 
     @Id
     @Column
-    private String taskId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer taskId;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -35,9 +36,8 @@ public class TaskDTO {
     @Column
     private LocalDateTime arrivalTime;
 
-    public TaskDTO(String taskId, TaskType taskType, int execTime, PriorityLevel priorityLevel, ExecStatus execStatus,
+    public TaskDTO(TaskType taskType, int execTime, PriorityLevel priorityLevel, ExecStatus execStatus,
                    LocalDateTime startTime, LocalDateTime arrivalTime) {
-        this.taskId = taskId;
         this.taskType = taskType;
         this.execTime = execTime;
         this.priorityLevel = priorityLevel;
@@ -46,40 +46,27 @@ public class TaskDTO {
         this.arrivalTime = arrivalTime;
     }
 
+    public TaskDTO() {
+    }
+
     public TaskDTO(TaskDTO taskDTO) {
         this.taskId = taskDTO.taskId;
     }
 
-    public String getTaskId() {
+    public Integer getTaskId() {
         return taskId;
-    }
-
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
     }
 
     public TaskType getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(TaskType taskType) {
-        this.taskType = taskType;
-    }
-
     public int getExecTime() {
         return execTime;
     }
 
-    public void setExecTime(int execTime) {
-        this.execTime = execTime;
-    }
-
     public PriorityLevel getPriorityLevel() {
         return priorityLevel;
-    }
-
-    public void setPriorityLevel(PriorityLevel priorityLevel) {
-        this.priorityLevel = priorityLevel;
     }
 
     public LocalDateTime getStartTime() {

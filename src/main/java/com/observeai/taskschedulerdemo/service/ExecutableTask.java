@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class ExecutableTask implements Runnable {
 
     private TaskDTO task;
-    private static final Logger logger = LoggerFactory.getLogger(PrioritySchedulerService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExecutableTask.class);
 
     @Autowired
     private PersistTaskService persistTaskService;

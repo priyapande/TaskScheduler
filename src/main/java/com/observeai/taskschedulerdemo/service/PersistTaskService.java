@@ -22,7 +22,7 @@ public class PersistTaskService {
         persistTaskDao.save(task);
     }
 
-    public TaskDTO findTask(String id) {
+    public TaskDTO findTask(Integer id) {
         return persistTaskDao.findById(id).orElse(null);
     }
 

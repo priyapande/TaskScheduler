@@ -28,7 +28,6 @@ public class PrioritySchedulerService {
     @Scheduled(cron="0 * * * * *")
     public void publishTaskToQueue() {
         LocalDateTime currTime = LocalDateTime.now();
-//        System.out.println("-------" + currTime);
         logger.info("Adding tasks to be executed at {}", currTime);
         List<TaskDTO> tasks = persistTaskService.getAllActiveTask(currTime);
         tasks.forEach(task -> {
