@@ -2,12 +2,14 @@ package com.observeai.taskschedulerdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-public class TaskschedulerdemoApplication {
+@EnableScheduling
+public class TaskSchedulerDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TaskschedulerdemoApplication.class, args);
+		SpringApplication.run(TaskSchedulerDemoApplication.class, args);
 	}
 
 }

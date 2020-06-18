@@ -30,7 +30,7 @@ public class TaskDTO {
     private LocalDateTime startTime;
 
     @Column
-    private LocalDateTime completedTime;
+    private LocalDateTime pickedUpTime;
 
     @Column
     private LocalDateTime arrivalTime;
@@ -44,6 +44,10 @@ public class TaskDTO {
         this.execStatus = execStatus;
         this.startTime = startTime;
         this.arrivalTime = arrivalTime;
+    }
+
+    public TaskDTO(TaskDTO taskDTO) {
+        this.taskId = taskDTO.taskId;
     }
 
     public String getTaskId() {
@@ -86,12 +90,12 @@ public class TaskDTO {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getCompletedTime() {
-        return completedTime;
+    public LocalDateTime getPickedUpTime() {
+        return pickedUpTime;
     }
 
-    public void setCompletedTime(LocalDateTime completedTime) {
-        this.completedTime = completedTime;
+    public void setPickedUpTime(LocalDateTime pickedUpTime) {
+        this.pickedUpTime = pickedUpTime;
     }
 
     public LocalDateTime getArrivalTime() {
@@ -119,7 +123,7 @@ public class TaskDTO {
                 ", priorityLevel=" + priorityLevel +
                 ", execStatus=" + execStatus +
                 ", startTime=" + startTime +
-                ", completedTime=" + completedTime +
+                ", pickedUpTime=" + pickedUpTime +
                 ", arrivalTime=" + arrivalTime +
                 '}';
     }
