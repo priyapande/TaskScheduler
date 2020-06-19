@@ -33,7 +33,7 @@ public class PrioritySchedulerService {
         tasks.forEach(task -> {
             task.setExecStatus(ExecStatus.INACTIVE);
             persistTaskService.saveOrUpdateTask(task);
-            taskQueue.add(new ExecutableTask(task));
+            taskQueue.add(new ExecutableTask(task, persistTaskService));
         });
         logger.info("Queue size in publish {}", taskQueue.size());
     }

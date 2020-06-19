@@ -33,6 +33,7 @@ public class ScheduleTaskController {
     public HttpStatus modifyTaskStatus(@RequestBody TaskDataReceiver taskData) {
         TaskDTO task = persistTaskService.findTask(taskData.getTaskId());
         task.setExecStatus(taskData.getTaskStatus());
+        persistTaskService.saveOrUpdateTask(task);
         return HttpStatus.OK;
     }
 
@@ -44,7 +45,7 @@ public class ScheduleTaskController {
         return namesOfActiveTask;
     }
 
-    @PostMapping(path = "/rangeTask/{startTime}/{endTime}")
+    @GetMapping(path = "/rangeTask/{startTime}/{endTime}")
     public List<Integer> fetchAllTasksInRange(@PathVariable String startTime, @PathVariable String endTime) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         List<TaskDTO> allTaskInRange = persistTaskService.getAllTasksExecutingInTimeRange(
