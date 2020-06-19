@@ -31,3 +31,7 @@ __3) /activeTask__
 __4) /rangeTask/{startTime}/{endTime}__   
    * Get API that takes start and end time as path variable
    * Give Time in format 'yyyy-MM-dd HH:mm'
+
+## Database
+I am using h2-in memory data for this POC.
+To see tables and rows please connect at after application starts: http://localhost:8080/h2-console/
