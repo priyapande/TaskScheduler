@@ -21,7 +21,7 @@ public class TaskExecutorService {
         taskExecutor = Executors.newFixedThreadPool(2);
     }
 
-    @Scheduled(cron = "0/15 * * * * *")
+    @Scheduled(cron = "* * * * * *")
     public void consumeTaskFromQueue() {
         while(!taskQueue.isEmpty()) {
             try {
