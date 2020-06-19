@@ -17,7 +17,7 @@ __1) /addTask__
 }]
   * Here PriorityLevel can be ["HIGH", "MEDIUM, "LOW"]; taskType ["A", "B"]
 
-__2) /modifyTask__
+__2) /modifyStatus__
   * Post API that accepts application/json in body
   * pass JSON in body as follows: {
     "taskId": "1",
